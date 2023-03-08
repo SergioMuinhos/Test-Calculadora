@@ -32,6 +32,6 @@ Los parámetros se le deben pasar por URL en formato URLEncoded. Los parametros 
 El resultado será un valor numerico con decimales (2 + 3 = 5):
 `5.0`
 ## Ejecutar tests
-Los test nada mas haydebes ejecutar el comando `mvn clean test`.
+Los test nada mas debes ejecutar el comando `mvn clean test`.
 
 
