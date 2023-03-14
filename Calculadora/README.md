@@ -34,3 +34,6 @@ El resultado será un valor numerico con decimales (2 + 3 = 5):
 ## Ejecutar tests
 Los test nada mas haydebes ejecutar el comando `mvn clean test`.
 
+## OpenApi Swagger
+Una vez tengamos el proyecto ejecutandose podremos ver la documentacion del api en `http://localhost:8080/swagger-ui.html`
+
