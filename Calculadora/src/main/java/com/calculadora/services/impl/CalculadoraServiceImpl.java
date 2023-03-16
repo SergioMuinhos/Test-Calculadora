@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.math.RoundingMode;
 
 @Slf4j
 @Service
@@ -20,7 +21,13 @@ public class CalculadoraServiceImpl implements CalculadoraService {
             case Constants.ADD -> resultado = firstNumber.add(secondNumber);
             case Constants.SUBSTRACT -> resultado = firstNumber.subtract(secondNumber);
             case Constants.MULTIP -> resultado = firstNumber.multiply(secondNumber);
-            case Constants.DIVIDE -> resultado = firstNumber.divide(secondNumber).round(new MathContext(4));
+            case Constants.DIVIDE -> {
+                if (secondNumber.compareTo(BigDecimal.ZERO) == 0) {
+                    log.error(Constants.DIVIDE_BY_ZERO);
+                    throw new IllegalArgumentException(Constants.DIVIDE_BY_ZERO);
+                }
+                resultado = firstNumber.divide(secondNumber, 4, RoundingMode.HALF_UP).round(new MathContext(4));
+            }
             default -> {
                 log.error(Constants.BAD_OPERATION + operation);
                 throw new IllegalArgumentException(Constants.BAD_OPERATION + operation);
