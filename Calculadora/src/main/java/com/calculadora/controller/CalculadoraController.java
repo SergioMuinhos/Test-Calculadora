@@ -24,13 +24,14 @@ public class CalculadoraController {
     @Autowired
     private CalculadoraService service;
 
-    private TracerImpl tracer = new TracerImpl();
+    @Autowired
+    private TracerImpl tracer;
 
 
     @GetMapping(value = "/calcular")
     public ResponseEntity<BigDecimal> calcula(@RequestParam(name = "firstNumber") BigDecimal firstNumber,
-                                          @RequestParam(name = "secondNumber") BigDecimal secondNumber,
-                                          @RequestParam(name = "operation") String operation) {
+                                              @RequestParam(name = "secondNumber") BigDecimal secondNumber,
+                                              @RequestParam(name = "operation") String operation) {
         BigDecimal result = this.service.calculo(firstNumber, secondNumber, operation);
         tracer.trace(result);
         return new ResponseEntity<>(result, HttpStatus.OK);
