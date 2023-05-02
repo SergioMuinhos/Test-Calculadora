@@ -29,10 +29,10 @@ public class CalculadoraApplicationTests {
     @Autowired
     CalculadoraController calculadoraController;
 
-  /*  @Test
+    @Test
     public void contextLoads() {
-        Assertions.assertThat(calculadoraController).isNot(null);
-    }*/
+        Assertions.assertThat(calculadoraController).isNotNull();
+    }
 
 
 }

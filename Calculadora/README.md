@@ -17,7 +17,7 @@ mvn clean install
 ```
 Debería haberse generado una carpeta `/target` con el JAR definitivo del programa `calculadora.jar`. Para ejecutarlo:
 
-`java -jar target/calculadora.jar`
+`mvn spring-boot:run`
 
 Con estos pasos deberiamos tener a nuestra disposición una API REST escuchando en `http://localhost:8080/calcular`
 
